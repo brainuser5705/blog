@@ -1,0 +1,65 @@
+html, body{
+    height: 100%;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+main{
+    min-height: calc(100% - 118.4px - 64px); /* minus height of header and footer */
+}
+
+p{
+    margin: 0px;
+}
+
+.header-title{
+    
+    font-family: 'Monofett', cursive;
+    text-shadow: 0.5px 2px #8d8c8c;
+
+    a{
+        color: #475e9e;
+
+        &:hover{
+            color: #234297;
+        }
+        
+    }
+}
+
+.feature-projects{
+    a{
+        color: #038103;
+
+        &:hover{
+            color: #04a004;
+        }
+    }
+}
+
+.tag{
+
+    a{
+        text-decoration: none;
+        color: white;
+
+        &:hover{
+            color: rgb(173, 173, 173);
+        }
+    }
+    
+}
+
+@media screen and (max-width: 770px){
+    .project-metrics {
+        padding-top: 0px !important;
+        text-align: left !important;
+    }
+}
+
+.project-content{
+
+    img{
+        width: 100%;
+    }
+
+}

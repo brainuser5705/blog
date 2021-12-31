@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="mx-auto mb-5" style="max-width: 750px;">
+    <a href="/posts">&lt;&lt; Back to posts</a>
+
+    <div class="my-4">
+        <div class="text-muted fst-italic fw-bold fs-3">post</div>
+        <div class="display-3">{{ page.title }}</div>
+        <div class="text-muted fs-5 fst-italic">{{ page.date | date:"%B %d, %Y" }}</div>
+    </div>
+
+    {{ content }}
+
+</div>
+
+
+
