@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 How I created and structured the newest (and last?) version of my personal website
 
 ----

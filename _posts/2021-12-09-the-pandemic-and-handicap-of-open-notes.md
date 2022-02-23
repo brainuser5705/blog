@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 Just me rambling about my test taking experience in college so far and taking exams
 
 ----

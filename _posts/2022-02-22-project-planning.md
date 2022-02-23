@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 The question of the universe is not *what is life*, it's **how tf do I manage my projects?**?  
 
 ---

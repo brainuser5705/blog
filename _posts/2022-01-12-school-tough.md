@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 A "encouraging" spreadsheet to keep me track of doing what I should be doing
 
 --- 

@@ -1,3 +1,7 @@
+---
+layout: post
+---
+
 *(This is a repost)*. How I designed the previous version of my website, explaining the custom backend structure and inherent flaw with it (which is why I ended up scraping it)
 
 ----
