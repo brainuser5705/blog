@@ -14,7 +14,7 @@ permalink: /
 
     {% for post in site.posts %}
         <div class="my-3">
-            <a href="{{ post.url }}" class="text-decoration-none fs-3 lh-2">{{ post.title }}</a>
+            <a href="{{ post.baseurl }}" class="text-decoration-none fs-3 lh-2">{{ post.title }}</a>
             <div class="fs-5 fst-italic">{{ post.date | date: "%B %d, %Y"}}</div>
             <div class="text-muted">{{ post.excerpt }}</div>
         </div>
