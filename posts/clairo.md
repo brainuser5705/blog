@@ -1,7 +1,3 @@
----
-layout: post
----
-
 *(This is a repost)*. I wrote this back in the summer of 2021 when I literally had nothing going on in my life. I'm cringing at myself too. Don't judge me please (╥︣﹏᷅╥).
 
 ---
