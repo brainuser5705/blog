@@ -1,5 +1,7 @@
-*(This is a repost)*. I wrote this back in the summer of 2021 when I literally had nothing going on in my life. I'm cringing at myself too. Don't judge me please (╥︣﹏᷅╥).
+# Clairo
 
+---
+*(This is a repost)*. I wrote this back in the summer of 2021 when I literally had nothing going on in my life. I'm cringing at myself too. Don't judge me please (╥︣﹏᷅╥).
 ---
 
 **Hi and welcome to a blog post that nobody asked for (or possibly even read lol).**  
