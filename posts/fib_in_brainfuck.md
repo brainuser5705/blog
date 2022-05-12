@@ -94,7 +94,7 @@ Here is a [solution](http://brainfuck.org/fib.b) by Daniel B Cristofani.
 
 That lead me to discover a [whole site of example BF code](https://sange.fi/esoteric/brainfuck/). I gave up on making a Fib code, but how the f did someone make a [Mandelbrot Set generator](https://www.youtube.com/watch?v=ABnBd0VZmPI)?!!?!?
 
-![](pics/R.png)
+![](https://i.imgur.com/IH4fZyx.gif)
 
 
 
