@@ -1,0 +1,161 @@
+# Brainfuck Interpreter in Python!
+
+*This article is quasi-documentation for my crude BF interpreter in Python.*
+
+## Prerequisite Knowledge
+
+Here is a list of things that you would need to be remotely familiar with:
+- Basic steps of creating a programming language
+    - phases of interpreting: lexical analysis, semantic analysis, evaluation
+    - tools for each phase: lexer, parser, evaluator  
+    *Follow along Andy Balaam's tutorial with the Cell programming language:*
+        1. [Intro and Lexer](https://accu.org/journals/overload/26/145/balaam_2510/)
+        2. [Parser](https://members.accu.org/index.php/journals/2532)
+        3. [Evaluator](https://members.accu.org/index.php/journals/2565)  
+        >*My general review of this tutorial: Gets a bit hard to follow if you don't read the code carefully (I would suggest code it and then go through it line by line), a few missing lines of code (will need to refer to his GitLab repository for them), and missing detail regarding native Python functions in Cell so the code won't work at the end lol. But it gives you a sense of how the code of an interpreter should look like. Overall good tutorial if you're getting started, I essentially based the BF interpreter code off of this tutorial!*
+- [Brainfuck Programming Language](https://esolangs.org/wiki/Brainfuck)
+    - the operations that it has (just need read 'Language Overview in the wiki')
+- Python (duh!)
+
+---
+
+## Phases of the Interpreter
+
+>If you had gone through the Cell programming language tutorial and is now familiar with the three main phases of interpreting a progarmming language, this will be recap.  
+
+Let's tell it in a form of a story (*note: all the outputs are based off the tutorial which is written in Python, but it is not for any specific language*). 
+
+1. You have program.
+```python
+x = 3 + 4
+```
+2. You *feed* program file to **lexer**, lexer reads character by character, lexer generates **tokens**.
+```python
+Lexer ouputs [('symbol','x'), ('=',''), ('number',3), ('operation', '+'), ('number', 4)]
+```
+3. You *feed* tokens to **parser**, parser reads token by token (kind of), parser generates **abstract syntax tree** *(in this case, nested tuples)*. You can also view it as an actual tree:
+```python
+Parser outputs [('assignment', ('symbol','x'), ('operation','+',('number',3), ('number',4)))]
+```
+<img src="https://i.imgur.com/yXMKP3D.png" height=150> 
+
+
+Paint MS skills on point.
+
+4. **Evaluator** goes through the abstract syntax tree and execute the code, using **environments** to store symbols and their values.
+
+So that's essentially what the interpreter does, at least what the tutorial shows.
+
+---
+
+## How this BF interpreter is broken down
+
+### Lexer
+
+Since BF only has 8 operations ( `><+-.,[]` ), the lexer retains that simplicity.
+
+```python
+# code omitted
+
+match char:
+    case '>':
+        yield ('shift_right')
+    case '<':
+        yield ('shift_left')
+    case '+':
+        yield ('increment')
+    case '-':
+        yield ('decrement')
+    case '.':
+        yield ('output')
+    case ',':
+        yield ('input')
+    case '[':
+        yield ('start_while')
+    case ']':
+        yield ('end_while')
+    case _:
+        pass
+```
+
+I could make it like `('shift', 'right'), ('shift', 'left')` but it that would just make the code more complicated then it needs to be. I figure the only case where that would be necessary is if you have tokens that have an infinite amount of *lexemes*, or strings. For instance, the tokens `'number'` or `'string'`.
+
+### Parser
+
+The way the Cell parser works is by looking at the previous token to figure out the meaning of the code (and thus determine whether it is valid). In BF's case, there's not much to check except the **while** symbols `[` and `]`.
+
+```python
+# code omitted
+match typ:
+
+    case 'start_while':
+        expressions_list = self._get_multiple_expressions()
+        return ('while',expressions_list)
+
+    case 'end_while':
+        raise Exception(" ']' does not have matching '[' ")
+
+    case _:
+        return (typ,)
+# code omitted
+```
+
+So what the code does is it spots the `start_while` token and then uses a function called `_get_multiple_expressions()` which continues reading through the tokens to get the expressions within the while loop and stops at `end_while` token. The code throws exceptions if there is a mismatch with the `[` and `]`. As for all the other tokens besides the while symbols, it just returns it but in tuple form.
+
+### Evaluator
+
+Since there is no concept of **scope** in BF, there is no need for an environment class. Instead the evaluator is itself a class that will simulate a BF runtime environment. 
+
+*The BF runtime environment has two things:*  
+1. An array of size 30,000
+2. A pointer/index
+
+```python
+class Evaluator:
+
+    def __init__(self):
+        self.arr = [0] * 30000
+        self.index = 0
+
+    # code omitted
+```
+
+As the evaluator goes through each **expression** in the abstract syntax tree that was generated by the parser, it executes the corresponding Python code that would manipulate the values of the `arr` and `index` attributes.
+
+```python
+# code omitted
+match typ:
+
+    case 'shift_right':
+        self.index += 1
+
+    case 'shift_left':
+        if self.index != 0:
+            self.index -= 1
+        else:
+            raise Exception('Negative index')
+
+    case 'increment':
+        self.arr[self.index] += 1
+
+    case 'decrement':
+        self.arr[self.index] -= 1
+
+    case 'output':
+        print(chr(self.arr[self.index]), end='')
+
+    case 'input':
+        entered = ''
+        while len(entered) != 1:
+            entered = input('\nInput[one character only]: ')
+        self.arr[self.index] = ord(entered)
+
+    case 'while':
+        while self.arr[self.index] != 0:
+            expression_list = expr[1]
+            self.eval_iter(expression_list)
+# code omitted
+```
+---
+
+And that's it! That was a broad overview of how the BF interpreter works. My next step of the project is to make an interactive web interpreter in Javascript. Exciting.
