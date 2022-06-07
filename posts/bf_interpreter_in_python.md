@@ -1,4 +1,4 @@
-# Brainfuck Interpreter in Python!
+# Brainf**k Interpreter in Python!
 
 *This article is quasi-documentation for my crude BF interpreter in Python.*
 
@@ -6,14 +6,14 @@
 
 Here is a list of things that you would need to be remotely familiar with:
 - Basic steps of creating a programming language
-    - phases of interpreting: lexical analysis, semantic analysis, evaluation
+    - phases of iInterpreterBranterpreting: lexical analysis, semantic analysis, evaluation
     - tools for each phase: lexer, parser, evaluator  
     *Follow along Andy Balaam's tutorial with the Cell programming language:*
         1. [Intro and Lexer](https://accu.org/journals/overload/26/145/balaam_2510/)
         2. [Parser](https://members.accu.org/index.php/journals/2532)
         3. [Evaluator](https://members.accu.org/index.php/journals/2565)  
         >*My general review of this tutorial: Gets a bit hard to follow if you don't read the code carefully (I would suggest code it and then go through it line by line), a few missing lines of code (will need to refer to his GitLab repository for them), and missing detail regarding native Python functions in Cell so the code won't work at the end lol. But it gives you a sense of how the code of an interpreter should look like. Overall good tutorial if you're getting started, I essentially based the BF interpreter code off of this tutorial!*
-- [Brainfuck Programming Language](https://esolangs.org/wiki/Brainfuck)
+- [Brainf**k Programming Language](https://esolangs.org/wiki/Brainf**k)
     - the operations that it has (just need read 'Language Overview in the wiki')
 - Python (duh!)
 
