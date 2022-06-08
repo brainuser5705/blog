@@ -5,8 +5,10 @@
 - `HEAD` basically means the latest commit in the repository
     - Checking out to different commits will change the `HEAD` which causes that *detached `HEAD` state*
     - to get back to the original `HEAD`, do `git checkout main`
+
 - You can do `HEAD~#` where `#` is an actual number to specified how many commmits before the current `HEAD`
     - so `HEAD~1` would mean the previous commit
+
 ---
 
 ## What's the difference between `git checkout` VS `git revert` VS `git reset`?
@@ -18,8 +20,7 @@ All of them can be use to **rollback to a previous commit**, the difference is h
 This command is use for:
 - checking out to another branch
 - checking out to a commit (using commit hash from `git log`)
-
-It changes the working area, but still keeps the staged changes.Here's an example:
+- changes the working area, but still keeps the staged changes
 
 ```bash
 
@@ -413,6 +414,6 @@ nothing to commit, working tree clean
 
 
 *References*
-- https://stackoverflow.com/questions/8358035/whats-the-difference-between-git-revert-checkout-and-reset
-- https://www.geeksforgeeks.org/git-difference-between-git-revert-checkout-and-reset/
-- https://www.initialcommit.com/blog/git-reset#what-is-git-reset
+- [Stackoverflow](https://stackoverflow.com/questions/8358035/whats-the-difference-between-git-revert-checkout-and-reset)
+- [GeeksForGeeks](https://www.geeksforgeeks.org/git-difference-between-git-revert-checkout-and-reset/)
+- [InitialCommit](https://www.initialcommit.com/blog/git-reset#what-is-git-reset)
