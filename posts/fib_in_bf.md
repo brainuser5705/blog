@@ -1,6 +1,6 @@
 # Fib in Brainf**k
 
-*[If you don't know what Brainf**k is, click here!](https://esolangs.org/wiki/Brainf**k)* - The main takeaway is that *Brainf**k* is a *Turing tarpit*, essentially a programming language that achieves *Turing completeness* (or the ability to create virtually any program) with as few operations as possible. In *Brainf**k*'s case: only 8 operations.
+*[If you don't know what Brainf**k is, click here!](https://esolangs.org/wiki/Brainfuck)* - The main takeaway is that *BF* is a *Turing tarpit*, essentially a programming language that achieves *Turing completeness* (or the ability to create virtually any program) with as few operations as possible. In *BF*'s case: only 8 operations.
 
 ---
 
