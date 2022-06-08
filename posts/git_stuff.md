@@ -415,3 +415,4 @@ nothing to commit, working tree clean
 *References*
 - https://stackoverflow.com/questions/8358035/whats-the-difference-between-git-revert-checkout-and-reset
 - https://www.geeksforgeeks.org/git-difference-between-git-revert-checkout-and-reset/
+- https://www.initialcommit.com/blog/git-reset#what-is-git-reset
