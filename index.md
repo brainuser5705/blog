@@ -11,3 +11,4 @@
 # Others
 
 - (6/7/22) [More "Complicated" Git Stuff for Reference](/posts/git_stuff.md)
+- (7/23/22) [Sri Chin Moy Half Marathon](/posts/half-marathon.md)
