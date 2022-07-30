@@ -14,4 +14,6 @@ But wait, there's more! The lap layout was not the same as the 10K, there was an
 
 Other things to record: I didn't really have a set pace to run at, but looking at my Coros Pace 2 throughout the race, I guesstimated that I should be running ~175bpm for my conservative pace. I stayed within that range, and eventually increased it to 180-190bpm for the last three laps.  Check out the [Strava post](https://www.strava.com/activities/7516575188) for the metrics.
 
+[Results](https://us.srichinmoyraces.org/node/11949/previous-results/2022#result-12531:~:text=66-,Ashley%20Liew,-Brooklyn%C2%A0%20NY)
+
 *Might update this post with pictures and links later.*

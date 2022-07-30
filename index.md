@@ -8,6 +8,10 @@
 - (5/7/22) [Fib in BF](/posts/fib_in_bf.md) - a dumb story on how I attempted to code a fib program in brainf**k (i suck at writing)
 - (5/12/22) [Brainf**k Interpreter (in Python)](/posts/bf_interpreter_in_python.md)
 
+# Competitive Programming
+
+- (7/30/22) [The Regular Expressions Leetcode Problem](/posts/reg-ex.md) - man i suck at cp
+
 # Others
 
 - (6/7/22) [More "Complicated" Git Stuff for Reference](/posts/git_stuff.md)
