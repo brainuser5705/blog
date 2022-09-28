@@ -16,9 +16,11 @@
 # Projects
 - (unfinished) [Kpop Data Visualizations](/posts/kpop-data-viz.md) - breakdown of what I did for the kpop-data-viz project
 - (unfinished) [Node Setup](/posts/node-setup.md) - how to setup a NodeJS project
+
 # Others
 
 - (6/7/22) [More "Complicated" Git Stuff for Reference](/posts/git_stuff.md)
 - (7/23/22) [Sri Chin Moy Half Marathon](/posts/half-marathon.md)
 - (8/25/22) [The Neurotic Programmer](/posts/the-neurotic-programmer.md) - how I live as a neurotic programmer
 - (9/27/22) [Coding Challenges](/posts/coding-challenge.md)
+- (9/28/22) [End of Free Dynos](/posts/frugal_deployment.md)

@@ -80,5 +80,10 @@ mongoose.connect(process.env.MONGODB_URL); // this is promise
 
 ---
 
+## Step Four: ReactJS
 
-
+- using Create React App toolchain for single page application
+    - uses webpack (bundler), eslint (analyze for any problems), babel (compiler)
+    - https://create-react-app.dev/docs/getting-started
+`npx create-react-app my-app --template typescript`
+`npm start`
