@@ -18,6 +18,8 @@
 - (10/2/22) [Binary Tree Validate](/posts/cp/binary_tree_validate.md)
 - (10/2/22) [Lowest Common Ancestor](/posts/cp/lowest_common_ancestor.md)
 - (10/15/22) [Balanced Binary Tree?](/posts/cp/balanced_bt.md)
+- (11/6/22) [Majority Element](/posts/cp/majority_element.md)
+- (11/6/22) [Happy Number](/posts/cp/happy_number.md)
 
 # Projects
 - (unfinished) [Kpop Data Visualizations](/posts/kpop-data-viz.md) - breakdown of what I did for the kpop-data-viz project
