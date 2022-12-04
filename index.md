@@ -6,7 +6,7 @@
 # Programming Languages
 
 - (5/7/22) [Fib in BF](/posts/fib_in_bf.md) - a dumb story on how I attempted to code a fib program in brainf**k (i suck at writing)
-- (5/12/22) [Brainf**k Interpreter (in Python)](/posts/bf_interpreter_in_python.md)
+- (5/12/22) [Brainf**k Interpreter (in Python)](/posts/bf_interpreter_in_python.md) 
 
 # Competitive Programming
 
@@ -30,8 +30,7 @@
 - (8/25/22) [The Neurotic Programmer](/posts/the-neurotic-programmer.md) - how I live as a neurotic programmer
 - (9/28/22) [End of free dynos means end of projects?](/posts/frugal_deployment.md)
 - (9/28/22) [I forgot the word](/posts/idk.md)
+- (12/4/22) [2023 Resolutions](/posts/2023-resolutions.md)
 
 # Others
 - (6/7/22) [More "Complicated" Git Stuff for Reference](/posts/git_stuff.md)
-
-
