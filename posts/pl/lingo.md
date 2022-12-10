@@ -88,7 +88,7 @@ This is all **frontend** implementation. These phases can used on top of multipl
 - Expressions produce a value, statements produce an effect
 - Functions:
     - **argument, actual parameter**: actual value passed into function through the *argument list*
-    - **paramter, formal parameter, formals**: variable that holds the value of argument inside the function, function *declaration* has *parameter list*
+    - **parameter, formal parameter, formals**: variable that holds the value of argument inside the function, function *declaration* has *parameter list*
     - can be **first class**: real values that can be reference to, store in variables, etc.
     ```
     fun addPair(a, b) {

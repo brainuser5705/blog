@@ -7,6 +7,9 @@
 
 - (5/7/22) [Fib in BF](/posts/fib_in_bf.md) - a dumb story on how I attempted to code a fib program in brainf**k (i suck at writing)
 - (5/12/22) [Brainf**k Interpreter (in Python)](/posts/bf_interpreter_in_python.md) 
+- [Crafting Interpreter Notes - Lingo](/posts/pl/lingo.md)
+- [Crafting Interpreter Notes - Representing Code](/posts/pl/representing-code.md)
+- [Crafting Interpreter Notes - Tree Walk Interpreter](/posts/pl/tree-walk-interpreter.md)
 
 # Competitive Programming
 
@@ -21,16 +24,18 @@
 - (11/6/22) [Majority Element](/posts/cp/majority_element.md)
 - (11/6/22) [Happy Number](/posts/cp/happy_number.md)
 
+## C++ Notes
+
+- [Chp 0](/posts/cpp/chap0.md)
+- [Chp 1](/posts/cpp/chap1.md)
+- [Chp 2](/posts/cpp/chap2.md)
+
 # Projects
 - (unfinished) [Kpop Data Visualizations](/posts/kpop-data-viz.md) - breakdown of what I did for the kpop-data-viz project
 - (unfinished) [Node Setup](/posts/node-setup.md) - how to setup a NodeJS project
 
 # Life and Thoughts
 - (7/23/22) [Sri Chin Moy Half Marathon](/posts/half-marathon.md)
-- (8/25/22) [The Neurotic Programmer](/posts/the-neurotic-programmer.md) - how I live as a neurotic programmer
-- (9/28/22) [End of free dynos means end of projects?](/posts/frugal_deployment.md)
-- (9/28/22) [I forgot the word](/posts/idk.md)
-- (12/4/22) [2023 Resolutions](/posts/2023-resolutions.md)
 
 # Others
 - (6/7/22) [More "Complicated" Git Stuff for Reference](/posts/git_stuff.md)

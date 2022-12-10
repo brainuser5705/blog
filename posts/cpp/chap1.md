@@ -19,7 +19,7 @@
 - At the statement level, use comments to describe why.
 
 # Variables
-- All computers have **RAM** memory: like series of numbered mailboxes that can be used to hold a piece of data (value) while program is running.
+- All computers have **RAM** memory: like series of numbered mailboxes that can be used to hold a piece of data (**value**) while program is running.
     - not direct access but access through an **object**: region of storage that has value and other properties associated with it
     - object can be named (**variable**, name of variable is identifier) or unnamed
     - at runtime, variable with be **instantiated** : created and assigned a memory address, and be called an **instance**
@@ -52,7 +52,7 @@
         - disallows *"narrowing conversions"*: cannot brace initialize a value that a variable cannot safely hold, compiler will throw an error with `int width { 4.5 }`
             - copy or direct initialization would drop the fractional part and the compiler will only throw a warning
             - note this is only during the compilation process,; if `std::cin` receives a fractional number for an integer variable, it will truncate it
-    - **value initialization**: initializes the variable to zero (**zero initialization**) or empty (appropiate to the data type)
+    - **value initialization**: initializes the variable to zero (**zero initialization**) or empty (appropriate to the data type)
         - use explicit initialization if value will be used
         - use value initialization if value is temporary and will be replaced
 
