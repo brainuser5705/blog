@@ -29,6 +29,7 @@
 - [Chp 0](/posts/cpp/chap0.md)
 - [Chp 1](/posts/cpp/chap1.md)
 - [Chp 2](/posts/cpp/chap2.md)
+- [Chp 4](/posts/cpp/chap4.md)
 
 # Projects
 - (unfinished) [Kpop Data Visualizations](/posts/kpop-data-viz.md) - breakdown of what I did for the kpop-data-viz project
@@ -36,6 +37,7 @@
 
 # Life and Thoughts
 - (7/23/22) [Sri Chin Moy Half Marathon](/posts/half-marathon.md)
+- (1/1/23) [9 weeks of running](/posts/9_weeks_running.md)
 
 # Others
 - (6/7/22) [More "Complicated" Git Stuff for Reference](/posts/git_stuff.md)
