@@ -77,7 +77,7 @@
 - use with `unsigned` keyword
 
 # Unsigned integer overflow
-- **modulo wrapping**: divided by one grater than the largest number of the type and the remainder is kept (ex. 280 -> 280/256 with remainder 24 -> 24. 256 is wrapped around to 0)
+- **modulo wrapping**: divided by one greater than the largest number of the type and the remainder is kept (ex. 280 -> 280/256 with remainder 24 -> 24. 256 is wrapped around to 0)
 - can wrap around the other direction with negative numbers (-1 -> 65535 for unsigned 2 byte int)
 
 # When to avoid and when to use unsigned numbers
@@ -92,6 +92,7 @@
 # Fixed-width integers and `size_t`
 - no fixed size because of originally C let implementers choose size for data types to best perform for target architecture
 - now we can use **fixed-width integers** (in `stdint.h` header, `#include <cstdint>` is defined inside the `std` namespace) that will be the same size on any architecture
+
 | Name | size |
 | - | - |
 | `std::int8_t ` | 1 byte signed (treated like a signed char - system dependent so avoid this type) |
@@ -99,6 +100,7 @@
 | `std::int16_t`, `std::uint16_t` | 2 byte signed/unsigned (use this instead of 8 bit types) |
 | `int32_t` | ... |
 | `int64_t` | ... |
+
 - downsides:
     - not defined on all architectures, only exist where there are fundamental types matching their width and follow certain binary representation
     - may be slower than a wider type on some architecture (using `int32_t` when your CPU is  faster at processing 64 bit integers)
@@ -162,10 +164,13 @@ float x{5.0f}; // f means float type
     - `std::cout` has precision of 6 (assumes that all floating point numbers are only significant by 6 digits, minimum precision of a float) and truncate anything after
     - `std::cout` might switch to scientific notation, exponent might be padded with extra 0's depending on compiler
 - number of digits of precision depends on size and particular value of floating point number
+
 | type | precision |
+| - | - |
 | `float` | 6-9 digits of precision (most have at least 7) |
 | `double` | 15-18 (most have at least 16) |
 | `long double` | minimum of 15, 18, or 33 depending on how many bytes it occupies |
+
 - can override default precision with an **output manipulator** function (affects how data is output) named `std::setprecision()` defined in `iomanip` header
     - ex. `std::setprecision(16)` shows 16 digits of precision
     - precision is still affected by the size of the data type and can affect non-fractional numbers as well (e.g. number has too many significant digits)
@@ -194,4 +199,165 @@ float x{5.0f}; // f means float type
     - instead use copy initialization (e.g. `bool b1 = 4`) for implicit conversion from int to bool (0 for false, any other number for true)
 - `std::cin` accepts 0 or 1 for boolean variables (not true or false string literals), silently failed inputs will zero-out variable to make it false
     - to allow true and false to be accepted, use `std::cin >> std::boolapha` (but 0 and 1 will not be treated as booleans)
-- 
+
+# If Statements
+- if statements only conditionally execute a single statement:
+```cpp
+if (condition)
+    statement;
+```
+- `if`-`else if`-`else`
+- non-boolean conditionals: the conditional expression is converted to a boolean value (non-zero is true, zero values is false)
+
+# Chars
+- `char` holds one character and is stored as an integer (**ASCII code, code point**)
+    - codes 0-31 are unprintable, for formatting and control printers
+    - codes 32-127 are printable chars
+- single quotes (can use double quotes but that is not optimized)
+- can initialize with character (e.g. `char c{'a'}`) or integer value (e.g. `char c{97}`, not preferred)
+- printing chars:
+    - `std::cout` outputs the character as an ASCII character
+    - can be outputted directly (e.g. `cout << 'c'`)
+- inputting chars:
+    - `std::cin` allows for multiple characters to be inputted but the `char` variable can only hold one character at a time
+    - the rest of the user input is left in the input buffer and can be accessed with `std::cin` again
+- char can be signed or unsigned since both types can hold onto values between 0 and 127
+- if using char to hold small integers (should never do unless optimizing for space), always specify whether it is signed or unsigned
+- **escape sequences**: '\' followed by character or number, [table](https://www.learncpp.com/cpp-tutorial/chars/#:~:text=Meaning-,Alert,-%5Ca)
+- avoid using **multicharacter literals** (e.g. `'56'`) since they have implementation-defined value (varies on the ompiler), not part of the C++ standard
+    - make sure escape sequences use backslash otherwise `/n` will be a multicharacter literal
+- `wchar_t` should be avoided unless interfacing with Windows API
+    - size is implementation defined, not reliable, deprecated (still supported but replaced with something better or no longer safe)
+- `char16_t` and `char32_T`
+    - used to support Unicode encoding (UTF-32 or UTF-36) since Unicode code point might need 16-32 bits to represent character
+    - don't need to use unless program should be Unicode compatible
+
+# Type conversion and static_cast
+- **type conversion**: converting value from type to another
+    - C++ allows conversion from fundamental type to another fundamental type
+    - **implicit type conversion**: when compiler does type conversion without needing to be coded in
+    - not actually converted, type conversion produces a new value of the target type
+    - compiler might put out a warning for possible loss of data when converting larger data type to smaller data type
+        - this is why brace initializtion is the preferred initialization form (narrow conversion will throw an error)
+    - **explicit type conversion**: explicitly tells compoiler to convert and ignore any loss of data
+        - `static_cast` operator (`static_cast<new_type>(expression)`)
+        - note that it converts expressions, variables will not be reassigned - only the value of the variable is used
+        - convert unsigned to signed number (no range checking)
+        ```cpp
+        unsigned int u { 5u }; // 5u means the number 5 as an unsigned int
+        int s { static_cast<int>(u) }; // return value of variable u as an int
+        ```
+        - `std::int8_t` and `std::int16_t` need to be explicitly cast since most compilers treat them as `char`s
+
+# Const variables and symbolic constants
+-  `const` keyword before or after variable type (`const int` (more common) or `int const` (called the east const style))
+- const variable must be initialized during definition (eg. `const double a; a =5.0` will cause an error) since value cannot be changed via assignment
+    - const variables can be initialized from non-constant variables
+- camel case to name const variables
+- function parameters can also be const (`void function(const int x)`)
+    - value of argument is used as the intializer
+    - ensures parameter value is not changed inside the function (however don't use const when passing by *value* since the value will be copied anyways)
+- function return values can be const (`const int getValue()`)
+    - returning const value can impede compiler optimization
+    - don't use when returning by value since the value is a copy
+- **symbolic constant**: name given to constant value
+    - constant variables have name/identifier and constant value
+    - object-like macros (`#define identifier substitution_text`)
+    - prefer constant variables over object-like macros:
+        - macros cannot be debug
+        - macros can have naming conflicts with normal code (e.g. same name for variable and macro)
+        - don't follow normal scoping rules
+    
+# Compile time constants, constant expressions, constexpr
+- **constant expression**: expressions that can be evaluated at compile-time
+- all values in the expression must be known at compiler-time, all operators and functions called must support compile-time evaluation
+- ex. `int x {3 + 4}` - compiler may replace the const expression with `7`, `std::cout` is not a compile-time supported function since outputs are runtime
+- makes compilation time longer, but expressions only need to be evaluated once which makes the executables faster and use less memory
+- compiler only required to evaluate const expressions in contexts where value is actually required at compile time (`int x {3 + 4`} is not a constant variable and does not need to be known at compile time, so the expression is not required to be evaluated but most compilers do anyways)
+- **compile-time constant**: constant whose value is known at compile time
+- **compile-time const**: `const` variable is compile-time constant is intializer is constant expression
+- **runtime const**: `const` variable's intiializer is not known until runtime (e.g. when initializing with a non-constexpr returning function)
+
+# `constexpr` keyword
+- there are cases where C++ requires a compile-time constant and typically we want to use compile-time constants for better optimization
+- hard to know if `const` variable is compile-time or run-time const so we can use `constexpr` instead - the initializer can only be a compile-time constant otherwise the compiler will throw an error
+- best practice:
+    - `constexpr`: any variables whose initializer is known at compile time
+    - `const`: any variables whose intializer is not known at compile time
+
+# Constant folding for constant subexpressions
+- optimization process is called "constant folding" since constant subexpressions can be optimized at compile-time even if they are used in non-const expressions
+
+# Literals
+- **literal/literal constant**: unnamed values inserted directly into code that cannot be reassigned
+- type of literal is deduced from value
+    - to change the default type of a literal, a suffix can added to the end of the value [table](https://www.learncpp.com/cpp-tutorial/literals/#:~:text=const%20char%5B14%5D-,Literal%20suffixes,-If%20the%20default)
+    - prefer uppercase suffixes
+    - cases to look out for:
+        - generally suffixes are not needed (except for unsigned integer literals)
+        - floating point numbers by default have type `double`, to make it into a float, use the suffix `f`/`F`
+        - floating point literals can also be declare in scientific notation (e.g. 6.02e23 is a double literal)
+        - avoid magic numbers by using `constexpr variables`
+
+# Numeral systems
+- 4 numeral systems in C++ (decimal, binary, hexadecimal, octal)
+- octal literals: prefix literal with `0` (e.g. `int x{012}`)
+    - octal is rarely used and should be avoided
+- hexadecimal literals: prefix with `0x` (e.g. `int x {0xF}`)
+    - single hexadecimal digit encompasses 4 bits since it has 16 values
+    - used to represent memory addresses/raw data
+- binary literals:
+    - can use hexadecimal literals (e.g `0x0002` to represent `0000 0000 0000 0010` in binary)
+    - we can use binary literals with `0b` prefix (e.g. `0b1010` to represent `0000 0000 0000 1010`)
+- C++ allows use of quotation mark (') as separator for long numbers (e.g. `2'123` for 2123)
+    - purely visual
+- `std::dec`, `std::oct`, `std::hex` I/O manipulator
+```cpp
+std::cout << std::hex << x; // set output to be hexadecimal
+std::cout << x; // now hexadecimal
+```
+- `std::bitset` in the `<bitset>` header for outputting in binary
+    - tell `std::bitset` how many bits to store and must be compile-time constant value
+    - can be initialized with unsigned integral value of any format
+    ```cpp
+    #include <bitset>
+    // more code
+    std::biset<8> bin1{0b1111'1001};
+    std::cout << std::bitset<4>{0b1010}; // temporary std::bitset
+
+# `std::string`
+- not a fundamental type in C++, instead use double quote "C-style strings"
+- `std::string` and `std::string_view` string types in the `<string>` header
+    - create objects (e.g. `std::string name {"John"};`)
+    - can create empty strings with no value (i.e `std::string empty{}`)
+- C++ does not auto convert strings to integral types
+- string output works with `std::cout`
+- string input:
+    - `std::cin` - with operator `>>` extract string and return characters up to the first whitespace (not including), other characters are left in queue
+    - `std::getline()` reads the full line of input to a string
+        - two arguments: `std::cin` and the string variable
+        - ex. `std::getline(std::cin >> std::ws, name)`
+        - `std::ws`: **input manipulator** that tells `std::cin` to ignore leading whitespace before extraction (skips the newline from before)
+- string length with member function `str_variable.length()`
+    - returns unsigned integral value (`size_t`)
+    - use `static_cast<int>` when assigned to an `int` to avoid compiler warnings about unsigned/signed
+    - use `std::ssize(value)` get length as signed integer
+- avoid passing `std::string` by value since copies of strings are expensive and should be avoided
+- by default, string literals are C-style stirngs - to create string literal with type `std::string`, use `s` suffix after double-quoted string literal (e.g. `"goo"s`)
+    - suffix lives in namespace `std::literals::string_literals` and can be accessed with `using namespace std::literals`
+    - can use C-style string literals instead of `std::string` literals, but there are cases where they make things easier
+- `constexpr std::string` is not supported and causes a compile-time error
+
+# `std::string_view`
+- when initializing/copy a `std::string`, a C-style string literal is copied into the memory allocated
+    - slow process and can be inefficient if string is only used one time
+- located in `<string_view>` header
+- provides read-only access to existing string (C-style string, `std::string`, char array) without needing to copy the string
+    - use when you need a read-only string
+- full support for `constexpr`
+- can be created using `std::string` intializer since it will implicitly convert from `std::string` to `std::string_view`
+- does not allow implicit conversion from `std::string_view` to `std::string`
+    - we can explicitly create `std::string` with `std::string_view` initializer
+    - but will need to use static_cast if passing by value
+- literals with type `std::string_view` are with suffix `sv`
+- avoid returning `std::string_view` from function
