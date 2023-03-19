@@ -36,7 +36,6 @@
 
 # Life and Thoughts
 - (7/23/22) [Sri Chin Moy Half Marathon](/posts/half-marathon.md)
-- (1/1/23) [9 weeks of running](/posts/9_weeks_running.md)
 
 # Others
 - (6/7/22) [More "Complicated" Git Stuff for Reference](/posts/git_stuff.md)
