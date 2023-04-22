@@ -18,3 +18,39 @@ Long story short and skipping over a lot of details, I won a bid on Ebay and pai
 ## "Deep" Cleansing and PopOS! Installation
 >  Date created: April 21, 2023
 
+# Plan
+
+-[X] Clean the laptop
+    - [official guide](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t480-type-20l5-20l6/20l5/solutions/ht035676-keeping-your-computer-clean-notebooks-all-in-one-desktops-tiny-in-one-and-monitors)
+    - [remove the keyboard](https://www.youtube.com/watch?v=0v-WO9VANyE)
+        - snap from the black clip
+-[ ] Specs check (as-is)
+    - [video](https://www.youtube.com/watch?v=3hFmIVqpG6s&list=LL&index=2)
+    - thunderbolt firmware: 20.0 
+    - install lenvono vantage
+-[ ] Install Linux!
+    - Decide if I want dual boot or not.. (nah, linux all the way)
+    - Live disk creation by flashing onto usb
+
+
+very weird issue with balena
+- destroys the partition of the usb drive
+- makes it so that the system can't find the drive any more, disk is not allocated to the drive
+- had to allocate volume, give it a name with the disk manager and minitool
+- finally got the volume and formatted to fat32
+- changing to rufus
+
+- gpt format [video](https://www.youtube.com/watch?v=s80HI2krsNA)
+- the drive works after running those commands with diskpart
+- balena etcher has to run as admin so that it can write the usb
+- now I can boot up through the usb
+
+how to change password
+```
+sudo passwd brainuser5705
+```
+
+figure out what the ssh thing is with github
+can i edit files remotely????
+
+
