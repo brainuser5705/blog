@@ -1,8 +1,10 @@
-> Welcome to my blog page! I have posts about projects that I'm working on, references/notes, and other random things. I'm not a good writer, so apologies if none of these posts are interesting or make any sense.
+> Welcome to my blog page! I have posts about projects that I'm working on, references/notes, and other random things. I'm not a good writer, so apologies if none of these posts are interesting or make any sense. But nonetheless, I hope you find a good read.
 
 # Posts
 
-- [Jumping into the Rabbit Hole That Is Linux](posts/linux.md)
+### [Jumping into the Rabbit Hole That Is Linux](posts/linux.md)
+*An ongoing journal of my experiment with Linux*
+
 
 
 # Old Posts
