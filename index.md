@@ -5,6 +5,9 @@
 ### [Jumping into the Rabbit Hole That Is Linux](posts/linux.md)
 *An ongoing journal of my experiment with Linux*
 
+### [List of Interesting Projects I Want to Work On](posts/interesting-projects.md)
+*An updating list of projects that I have in the back of my mind*
+
 
 
 # Old Posts
