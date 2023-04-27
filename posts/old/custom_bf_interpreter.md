@@ -27,6 +27,23 @@
     - need to fix bug: external parent valid state should be updated separately from the child (inputs) valid states
     - easiest solution would be to extract the input state variables and put it in the parent
         - but i want to avoid doing that because it'll be a lot of states to work with
+
+## 3/20/23
+
+- valid symbol state in app
+- now all components (input and variant button) are in sync
+- automatic replacement is harder than i thought, I will just focus on making the actual interpreter right now and worry about replacing latter.
+
+## 3/21/23
+
+- lexical tokens, source code would update state variable in App
+- Source code would update the lexical tokens
+- changing the symbols would update the lexical tokens which would in turn update the source code (might need to do double translation)
+
+- we need lexical tokens because it would make highlighting for the debugger easier
+
+- actually lexical tokens might really be overkill - I could instead just do the translation and having the highlighting be done via an offset variable
+
 ```
 apple banana orange
 
